@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Introduction\nIn this Quarto document we will explore population trends of certain regions and how they are possibly related to political events of the 20th and 21st centuries.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-data",
+    "href": "index.html#sec-data",
+    "title": "Introduction",
+    "section": "Data",
+    "text": "Data\nThe dataset was obtained from the UN Population Division Data Portal and contains population data for 236 regions which span the years 1950 to 2026.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "balkans.html",
+    "href": "balkans.html",
+    "title": "Balkans",
+    "section": "",
+    "text": "Former Yugoslav Republics\nThere isn’t a conclusive list for the countries that constitute the Balkans. For the purpose of our presentation let’s assume that Balkans are comprised of Albania, Bulgaria, Bosnia and Herzegovina, Croatia, Greece, Montenegro, North Macedonia, Romania, Serbia and Slovenia.\nBosnia, Croatia and Serbia were the largest constituents of Yugoslavia in terms of both population and area.\nFigure 1: Bosnia, Croatia and Serbia Population 1950 - 2026\nFollowing the ethnic conflicts that occurred in 1991 and the breakup of Yugoslavia in 1992 all three countries displayed a decline, a trend that continues until today. Bosnia and Herzegovina experienced a dramatic drop in 1991 and then a surge in 1995, which marks the termination of the war and the gradual return of the refugees.\nFigure 2: Montenegro, North Macedonia and Slovenia Population 1950 - 2026\nOn the other hand Montenegro, North Macedonia and Slovenia were relatively unaffected from the ethnic conflicts. Nevertheless the population growth rate of Montenegro and Slovenia was decreased. North Macedonia’s population after positive growth rates which lasted from 1994 to 2005, displayed a steady decline ever since.\nTable 1: Population difference between two successive years (North Macedonia)",
+    "crumbs": [
+      "Balkans"
+    ]
+  },
+  {
+    "objectID": "balkans.html#sec-bulgaria_greece_romania",
+    "href": "balkans.html#sec-bulgaria_greece_romania",
+    "title": "Balkans",
+    "section": "Albania, Bulgaria, Greece and Romania",
+    "text": "Albania, Bulgaria, Greece and Romania\nAfter the fall of communism in Albania, Bulgaria and Romania the population of these countries has seen a constant decline. In Albania and Bulgaria the power transition was pretty much bloodless, not so in Romania where the casualties during the Romanian revolution of 1989 were between 689 and 1290 depending on the source.\n\n\n\n\n\n\n\n\nFigure 3: Bulgaria, Greece and Romania Population 1950 - 2026\n\n\n\n\nGreece was part of the part of the Western Bloc during the Cold War. After years of concesutive positive growth rates, the population of the country entered a downward trend which lasts from 2010 until today. The main reasons are immigration to developed countries following the 2009 - 2010 debt crisis and declining birth rates.\n\n\n\n\n\n\n\n\nFigure 4: Albania Population 1950 - 2026",
+    "crumbs": [
+      "Balkans"
+    ]
+  },
+  {
+    "objectID": "balkans.html#present-situation",
+    "href": "balkans.html#present-situation",
+    "title": "Balkans",
+    "section": "Present Situation",
+    "text": "Present Situation\nThis donut chart displays the 2026 population for the Balkan countries.\n\n\n\n\n\n\n\n\nFigure 5: Balkans 2026 population share by country",
+    "crumbs": [
+      "Balkans"
+    ]
+  },
+  {
+    "objectID": "balkans.html#map",
+    "href": "balkans.html#map",
+    "title": "Balkans",
+    "section": "Map",
+    "text": "Map\nIn the following interactive map, hover your mouse over a country to see its population. You can also use the slider below the map or click play to see how the population changes over time.\n\n\n\n\n\n\n\n\nFigure 6: Interactive population map",
+    "crumbs": [
+      "Balkans"
+    ]
+  }
+]
