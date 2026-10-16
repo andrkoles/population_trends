@@ -1,0 +1,25 @@
+project:
+  type: book
+  output-dir: docs
+  
+book:
+  author: "Andreas Kolesidis"
+  chapters:
+    - index.qmd
+    - balkans.qmd
+    - caucasus.qmd
+  search: false
+    
+
+format:
+  html:
+    theme:
+      - flatly
+    toc: true
+    lightbox: true
+    execute:
+      echo: false
+      freeze: auto
+      warning: false
+      number-sections: true
+    crossrefs-hover: true

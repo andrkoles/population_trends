@@ -1,0 +1,7 @@
+# Introduction {#sec-introduction .unnumbered}
+
+In this Quarto document we will explore population trends of certain regions and how they are possibly related to political events of the 20<sup>th</sup> and 21<sup>st</sup> centuries.
+
+## Data {#sec-data .unnumbered}
+
+The dataset was obtained from the [UN Population Division Data Portal](https://population.un.org/dataportal/home?df=ecf6edc9-c80e-4cd8-8204-23e7ed22ce15) and contains population data for 236 regions which span the years 1950 to 2026.
