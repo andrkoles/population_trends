@@ -40,6 +40,9 @@ vignettes/*.pdf
 .Renviron
 .env
 
+# Notes
+NOTES.md
+
 # pkgdown site
 # docs/
 
