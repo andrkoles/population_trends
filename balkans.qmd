@@ -11,15 +11,7 @@ library(echarts4r.maps)
 library(DT)
 
 # Load UN population dataset
-df <- read_csv("data/unpopulation_dataportal_20261013092217.csv")
-
-df <- df |> 
-  select(Location, Time, Value) |> 
-  rename(
-    country = Location,
-    year = Time,
-    population = Value
-  )
+df <- read_csv("data/data.csv")
 ```
 
 ## Former Yugoslav Republics {#sec-former_yug_rep .unnumbered}
@@ -63,7 +55,8 @@ df_msn |>
   e_charts(year) |>
   e_tooltip(trigger = "axis", backgroundColor = "#FFFFFF") |>
   e_line(population, symbol = "none") |> 
-  e_x_axis(min = 1950, max = 2026) |> 
+  e_x_axis(name = "Year", min = 1950, max = 2026) |> 
+  e_y_axis(name = "Population")|> 
   e_theme("azul")
 ```
 
@@ -81,7 +74,7 @@ df_msn |>
   datatable(options = list(searching = FALSE))
 ```
 
-## Albania, Bulgaria, Greece and Romania {#sec-bulgaria_greece_romania}
+## Albania, Bulgaria, Greece and Romania {#sec-bulgaria_greece_romania .unnumbered}
 
 After the fall of communism in Albania, Bulgaria and Romania the population of these countries has seen a constant decline. In Albania and Bulgaria the power transition was pretty much bloodless, not so in Romania where the casualties during the [Romanian revolution](https://en.wikipedia.org/wiki/Romanian_revolution) of 1989 were between 689 and 1290 depending on the source.
 
@@ -105,7 +98,8 @@ df_bgr |>
   e_charts(year) |>
   e_tooltip(trigger = "axis", backgroundColor = "#FFFFFF") |>
   e_line(population, symbol = "none") |> 
-  e_x_axis(min = 1950, max = 2026) |> 
+  e_x_axis(name = "Year", min = 1950, max = 2026) |>
+  e_y_axis(name = "Population")|> 
   e_theme("azul")
 ```
 
@@ -119,7 +113,8 @@ df_alb |>
   e_charts(year) |>
   e_tooltip(trigger = "axis", backgroundColor = "#FFFFFF") |>
   e_line(population, symbol = "none") |> 
-  e_x_axis(min = 1950, max = 2026) |> 
+  e_x_axis(name = "Year", min = 1950, max = 2026) |> 
+  e_y_axis(name = "Population")|> 
   e_theme("azul")
 ```
 

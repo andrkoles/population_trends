@@ -8,6 +8,7 @@ book:
     - index.qmd
     - balkans.qmd
     - caucasus.qmd
+    - population_app.qmd
   search: false
     
 
@@ -23,3 +24,4 @@ format:
       warning: false
       number-sections: true
     crossrefs-hover: true
+    embed-resources: false

@@ -1,0 +1,74 @@
+---
+format: html
+filters:
+  - shinylive
+---
+
+# Population App {#sec-population_app .unnumbered}
+
+Population app is an R Shiny app where you can select multiple countries in the `Country` field and view their populations. You can also adjust both handles of the `Year` range slider to compare population data across custom timeframes.
+
+::: {.column-page}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 1200
+
+library(shiny)
+library(dplyr)
+library(readr)
+library(echarts4r)
+library(bslib)
+library(vroom)
+
+df <- read_csv("data.csv")
+
+ui <- page_sidebar(
+  theme = bslib::bs_theme(bootswatch = "cosmo"),
+  title = "Population",
+  sidebar = sidebar(
+    selectInput("country", "Country", choices = unique(df$country),
+                multiple = TRUE, selected = c("Greece", "Bulgaria", "Albania")),
+    sliderInput("year", "Year", min = 1950, max = 2026,
+                value = c(1950, 2026))
+  ),
+  card(
+    card_header("Population graph"),
+    echarts4rOutput("plot")
+  )
+)
+
+server <- function(input, output, session) {
+  data <- reactive({
+    req(input$country)
+
+    df |> filter(
+        country %in% input$country,
+        year >= input$year[1] & year <= input$year[2]
+      )
+
+  })
+
+  output$plot <- renderEcharts4r({
+    validate(
+      need(input$country, "Select at least one country"),
+      need(diff(input$year) > 0, "Ending year should be greater than starting year")
+    )
+    
+    data() |> 
+      group_by(country) |> 
+      e_charts(year) |> 
+      e_tooltip(trigger = "axis", backgroundColor = "#FFFFFF") |>
+      e_line(population, symbol = "none") |> 
+      e_x_axis(name = "Year", min = input$year[1], max = input$year[2]) |> 
+      e_y_axis(name = "Population")|> 
+      # e_theme("azul") |>
+      e_animation(show = FALSE)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+## file: data.csv
+{{< include data/data.csv >}}
+```
+:::
