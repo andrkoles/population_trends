@@ -11,7 +11,7 @@ Population app is an R Shiny app where you can select multiple countries in the 
 ::: {.column-page}
 ```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 1200
+#| viewerHeight: 800
 
 library(shiny)
 library(dplyr)
@@ -24,7 +24,7 @@ df <- read_csv("data.csv")
 
 ui <- page_sidebar(
   theme = bslib::bs_theme(bootswatch = "cosmo"),
-  title = "Population",
+  title = "Population App",
   sidebar = sidebar(
     selectInput("country", "Country", choices = unique(df$country),
                 multiple = TRUE, selected = c("Greece", "Bulgaria", "Albania")),
