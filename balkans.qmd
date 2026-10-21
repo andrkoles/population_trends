@@ -2,6 +2,8 @@
 
 There isn't a conclusive list for the countries that constitute the Balkans. For the purpose of our presentation let's assume that Balkans are comprised of Albania, Bulgaria, Bosnia and Herzegovina, Croatia, Greece, Montenegro, North Macedonia, Romania, Serbia and Slovenia.
 
+![Balkan countries](images/balkans.png){#fig-balkan_countries width="100%"}
+
 ```{r}
 # Imports
 library(readr)

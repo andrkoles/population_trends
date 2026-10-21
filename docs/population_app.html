@@ -148,19 +148,19 @@ ul.task-list li input[type="checkbox"] {
 #|   shinylive does not work in self-contained HTML documents.
 #|   Please set `embed-resources: false` in your metadata.
 #| standalone: true
+#| echo: false
 #| viewerHeight: 800
 
 library(shiny)
 library(dplyr)
-library(readr)
 library(echarts4r)
 library(bslib)
 library(vroom)
 
-df &lt;- read_csv("data.csv")
+df &lt;- vroom("data.csv")
 
 ui &lt;- page_sidebar(
-  theme = bslib::bs_theme(bootswatch = "cosmo"),
+  theme = bslib::bs_theme(bootswatch = "minty"),
   title = "Population App",
   sidebar = sidebar(
     selectInput("country", "Country", choices = unique(df$country),
