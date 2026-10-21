@@ -8,6 +8,7 @@ book:
     - index.qmd
     - balkans.qmd
     - caucasus.qmd
+    - arab_gulf_states.qmd
     - population_app.qmd
   search: false
     

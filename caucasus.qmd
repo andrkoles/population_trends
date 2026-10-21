@@ -1,1 +1,37 @@
-# Caucasus {#sec-caucasus .unnumbered} 
+# Caucasus {#sec-caucasus .unnumbered}
+
+Caucasus is situated between the Black Sea and the Caspian. The broader Caucasus encompasses south regions of Russia, but in this chapter we will focus on Azerbaijan, Armenia and Georgia.
+
+![Caucasus](images/caucasus.png){#fig-caucasus width="80%"}
+
+All three countries are former Soviet republics which gained their independence in 1991.
+
+```{r}
+# Imports
+library(readr)
+library(dplyr)
+library(echarts4r)
+
+# Load UN population dataset
+df <- read_csv("data/data.csv")
+```
+
+```{r}
+caucasus <- c("Armenia", "Azerbaijan", "Georgia")
+
+df_caucasus <- df |> 
+  filter(country %in% caucasus)
+```
+
+```{r}
+#| label: fig-azerbaijan_armenia_georgia
+#| fig-cap: "Azerbaijan, Armenia and Georgia Population 1950 - 2026"
+df_caucasus |> 
+  group_by(country) |> 
+  e_charts(year) |> 
+  e_tooltip(trigger = "axis", backgroundColor = "#FFFFFF") |>
+  e_line(population, symbol = "none") |> 
+  e_x_axis(name = "Year", min = 1950, max = 2026) |> 
+  e_y_axis(name = "Population")|> 
+  e_theme("azul")
+```
