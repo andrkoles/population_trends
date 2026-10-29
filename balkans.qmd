@@ -1,9 +1,5 @@
 # Balkans {#sec-balkans .unnumbered}
 
-There isn't a conclusive list for the countries that constitute the Balkans. For the purpose of our presentation let's assume that Balkans are comprised of Albania, Bulgaria, Bosnia and Herzegovina, Croatia, Greece, Montenegro, North Macedonia, Romania, Serbia and Slovenia.
-
-![Balkan countries](images/balkans.png){#fig-balkan_countries width="75%"}
-
 ```{r}
 # Imports
 library(readr)
@@ -11,9 +7,37 @@ library(dplyr)
 library(echarts4r)
 library(echarts4r.maps)
 library(DT)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggplot2)
+library(sf)
 
 # Load UN population dataset
 df <- read_csv("data/data.csv")
+```
+
+There isn't a conclusive list for the countries that constitute the Balkans. For the purpose of our presentation let's assume that Balkans are comprised of Albania, Bulgaria, Bosnia and Herzegovina, Croatia, Greece, Montenegro, North Macedonia, Romania, Serbia and Slovenia.
+
+```{r}
+#| label: fig-balkan_countries
+#| fig-cap: "Balkan countries"
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+world_points <- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+balkans <- c(
+  "Albania", "Bosnia and Herz.", "Bulgaria", "Croatia", "Greece", "Kosovo",
+  "Montenegro", "North Macedonia", "Romania", "Serbia", "Slovenia"
+)
+
+ggplot(data = world) +
+  geom_sf() +
+  geom_sf(data = subset(world, name %in% balkans), fill = "#00CC33") +
+  xlab("Longitude") + ylab("Latitude") +
+  coord_sf(xlim = c(0, 30), ylim = c(33, 50)) +
+  geom_text(data = world_points, aes(x = X, y = Y, label = name), size = 2)
 ```
 
 ## Former Yugoslav Republics {#sec-former_yug_rep .unnumbered}

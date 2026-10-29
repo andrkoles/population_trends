@@ -1,20 +1,57 @@
 # Caucasus {#sec-caucasus .unnumbered}
 
-Caucasus is situated between the Black Sea and the Caspian Sea. The broader Caucasus encompasses south regions of Russia, but in this chapter we will focus solely on Azerbaijan, Armenia and Georgia.
-
-![Caucasus](images/caucasus.png){#fig-caucasus width="80%"}
-
-All three countries are former Soviet republics which gained their independence in 1991.
-
 ```{r}
 # Imports
 library(readr)
 library(dplyr)
 library(echarts4r)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggplot2)
+library(sf)
 
 # Load UN population dataset
 df <- read_csv("data/data.csv")
 ```
+
+Caucasus is situated between the Black Sea and the Caspian Sea. The broader Caucasus encompasses south regions of Russia, but in this chapter we will focus solely on Azerbaijan, Armenia and Georgia.
+
+```{r}
+#| label: fig-caucasus
+#| fig-cap: "Caucasus"
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+world_points <- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+caucasus <- c("Armenia", "Azerbaijan", "Georgia")
+
+ggplot(data = world) +
+  geom_sf() +
+  geom_sf(data = subset(world, name %in% caucasus), fill = "#00CC33") +
+  xlab("Longitude") + ylab("Latitude") +
+  coord_sf(xlim = c(35, 70), ylim = c(34, 50)) +
+  geom_text(data = world_points, aes(x = X, y = Y, label = name), size = 2) + 
+  annotate(
+    "segment", 
+    x = 45.5,
+    y = 39.29, 
+    xend = 45.3,
+    yend = 38.2,
+    size = 0.3,
+    color = "grey1"
+    ) + 
+  annotate(
+    "text",
+    x = 45.5,
+    y = 38,
+    label = "Azerbaijan (Nakhchivan)",
+    size = 2
+  )
+```
+
+All three countries are former Soviet republics which gained their independence in 1991.
 
 ```{r}
 caucasus <- c("Armenia", "Azerbaijan", "Georgia")
